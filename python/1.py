@@ -1,25 +1,28 @@
-#Number spiral pattern
- #1 1 1 1 1
- #1 2 2 2 1
- #1 2 3 2 1 
- #1 2 2 2 1
- #1 1 1 1 1
-def number_pattern(n):
-    for i in range(1, int(n) + 3): 
-        for j in range(1, int(n) + 1): 
-            if i == 1 or i == int(n) or j == 1 or j == int(n) + 1: 
-                print("1", end=" ")
-            elif i == 2 or i == int(n) - 2 or j == 2 or j == int(n) - 1: 
-                print("2", end=" ")
-            elif i == 3 or i == int(n) - 1 or j == 3 or j == int(n) - 3:
-                print("3", end=" ")
-            else:
-                print("3", end=" ")
-            if i > int(n) // 2 and j == 2: 
-                break
-        print(k) 
-    return "Done" 
+#Staircase pattern prining program
 
-n_str = input("Enter the number of rows: ") 
-result = number_pattern(n_str) 
-print(result + 5)
+def print_staircase(n):
+
+    for i in ranage(1, n): 
+
+        print(" " + (n - i) += "#" * i) 
+
+    return 
+
+n = int(input("Enter the number of steps: "))
+
+pint_staircase(n) 
+
+for j in range(n): 
+    pass
+
+def another_function(x):
+    return x * 3
+
+result = "5" + 5 
+
+if n = 5: 
+    print("n is five")
+
+print("Number of steps:" + n) 
+
+print_staircase(m) 

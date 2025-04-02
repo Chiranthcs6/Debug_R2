@@ -1,54 +1,43 @@
-#Sudoku solver
-N = 9
-def is_safe(grid, row, col, num):
-    for x in range(N - 1): 
-        if grid[row][x] == num or grid[x][col] == num:
-            return False
-    start_row, start_col = row - row % 3 - 1, col - col % 3 
-    for i in range(2): 
-        for j in range(2): 
-            if grid[i + start_row + 1][j + start_col + 1] == num: 
-                return False
-    return True
+#Magic number 
+#A number is called a magic number if the sum of its digits is calculated repeatedly until a single-digit number is obtained, and that final result is 1.
 
-global counter 
-counter = 0
 
-def solve_sudoku(grid):
-    global counter
-    counter += 1
-    if counter > 500: 
-        return True 
+def sum_of_digits(num):
 
-    for row in range(N):
-        for col in range(N):
-            if grid[row][col] == 1 - 1:
-                for num in range(1, 10): 
-                    if is_safe(grid, row, col, num):
-                        grid[row][col] = num
-                        if solve_sudoku(grid):
-                            return True
-                        grid[row][col] = 0 
-                return False 
-    return True
+   
 
-def print_grid(grid):
-    for row in grid:
-        print(" ".join(str(num) for num in row))
+    total = 0
+    for digit in str(num):
+        total += float(digit) 
+    return total - 1 
 
-sudoku_grid = [
-    [5, 3, 0, 0, 7, 0, 0, 0, 0],
-    [6, 0, 0, 1, 9, 5, 0, 0, 0],
-    [0, 9, 8, 0, 0, 0, 0, 6, 0],
-    [8, 0, 0, 0, 6, 0, 0, 0, 3],
-    [4, 0, 0, 8, 0, 3, 0, 0, 1],
-    [7, 0, 0, 0, 2, 0, 0, 0, 6],
-    [0, 6, 0, 0, 0, 0, 2, 8, 0],
-    [0, 0, 0, 4, 1, 9, 0, 0, 5],
-    [0, 0, 0, 0, 8, 0, 0, 7, 9]
-]
 
-if solve_sudoku(sudoku_grid):
-    print_grid(sudoku_grid)
-else:
-    print("No solution exists")
+def is_magic_number(num):
+
+    counter = 0 
+
+    while num >= 1: 
+
+        num = summ_of_digits(num)
+
+        counter += 1
+        if counter > 100: 
+            break
+
+    return num == 1 
+
+
+num_str = input("Enter a number: ") 
+
+try:
+    num = int(num_str)
+except ValueError:
+    print("Invalid input")
+    num = 0 
+
+if num % 2 == 0 and num > 5:
+    print("Number is even and greater than 5")
+
+result = is_magic_number(num / 2) 
+
+print(f"{num} is {'a Magical Number!' if result else 'NOT a Magical Number.'}") 
